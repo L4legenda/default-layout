@@ -9,12 +9,16 @@
   "license": "ISC",
   "description": "none",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.5",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-csso": "^3.0.1",
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^5.0.1"
+  },
+  "dependencies": {
+    "typescript": "^3.4.5"
   }
 }

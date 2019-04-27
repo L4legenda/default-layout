@@ -4,12 +4,14 @@ const
 	autoprefixer = require('gulp-autoprefixer'),
 	csso 		 = require('gulp-csso'),
 	sourcemaps 	 = require('gulp-sourcemaps'),
+	ts 			 = require('gulp-typescript'),
 	pug   		 = require('gulp-pug');
 
 /* Watch */
 gulp.task('watch', function(end) {
 	gulp.watch(['./scss/**/*.scss'], gulp.series("scss"));
 	gulp.watch('./pug/**/*.pug', gulp.series("pug"));
+	gulp.watch('./ts/**/*.ts', gulp.series("ts"));
 	end();
 });
 
@@ -31,4 +33,14 @@ gulp.task('pug', function(){
 		pretty: true,
 	}))
 	.pipe(gulp.dest("../view"));
+});
+
+/* typescript */
+gulp.task("ts", function() {
+	return gulp.src('ts/*.ts')
+	.pipe(ts({
+            noImplicitAny: true,
+            outFile: 'script.js'
+    	}))
+    .pipe(gulp.dest("../view/js"));
 });
